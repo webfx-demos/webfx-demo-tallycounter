@@ -1,4 +1,4 @@
-package webfx.demo.tallycounter;
+package dev.webfx.demo.tallycounter;
 
 import eu.hansolo.fx.odometer.Odometer;
 import eu.hansolo.fx.odometer.OdometerBuilder;

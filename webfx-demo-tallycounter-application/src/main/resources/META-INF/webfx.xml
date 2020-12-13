@@ -1,7 +1,7 @@
 <module>
 
     <providers>
-        <provider spi="javafx.application.Application">webfx.demo.tallycounter.TallyCounterApplication</provider>
+        <provider spi="javafx.application.Application">dev.webfx.demo.tallycounter.TallyCounterApplication</provider>
     </providers>
 
 </module>

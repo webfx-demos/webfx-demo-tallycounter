@@ -28,7 +28,7 @@ You can see in the [source code][demo-source-link] how this demo uses this techn
 The power of this technique will become more evident with the [Enzo clocks demo][webfx-enzoclocks-repo-link] that codes a circle packer algorithm to layout its components.
 
 [demo-live-link]: https://tallycounter.webfx.dev
-[demo-source-link]: https://github.com/webfx-project/webfx-demo-tallycounter/blob/main/webfx-demo-tallycounter-application/src/main/java/webfx/demo/tallycounter/TallyCounterApplication.java
+[demo-source-link]: https://github.com/webfx-project/webfx-demo-tallycounter/blob/main/webfx-demo-tallycounter-application/src/main/java/dev/webfx/demo/tallycounter/TallyCounterApplication.java
 [previous-demo-repo-link]: https://github.com/webfx-project/webfx-demo-particles
 [hansolo-odometer-link]: https://github.com/HanSolo/odometer
 [webfx-enzoclocks-repo-link]: https://github.com/webfx-project/webfx-demo-enzoclocks

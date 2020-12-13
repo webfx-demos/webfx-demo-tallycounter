@@ -8,9 +8,9 @@ module webfx.demo.tallycounter.application {
     requires webfx.lib.odometer;
 
     // Exported packages
-    exports webfx.demo.tallycounter;
+    exports dev.webfx.demo.tallycounter;
 
     // Provided services
-    provides javafx.application.Application with webfx.demo.tallycounter.TallyCounterApplication;
+    provides javafx.application.Application with dev.webfx.demo.tallycounter.TallyCounterApplication;
 
 }
