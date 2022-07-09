@@ -13,6 +13,8 @@
 
     <artifactId>webfx-demo-tallycounter-application-gluon</artifactId>
 
+    <name>WebFXDemoTallycounter</name>
+
     <dependencies>
 
         <dependency>

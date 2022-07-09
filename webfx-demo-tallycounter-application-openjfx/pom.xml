@@ -54,8 +54,8 @@
     </dependencies>
 
     <properties>
-        <plugin.javapackager.name>webfx-demo-tallycounter</plugin.javapackager.name>
-        <plugin.javapackager.displayName>webfx-demo-tallycounter</plugin.javapackager.displayName>
+        <plugin.javapackager.name>WebFXDemoTallycounter</plugin.javapackager.name>
+        <plugin.javapackager.displayName>WebFX Demo Tallycounter</plugin.javapackager.displayName>
         <plugin.javapackager.url/>
     </properties>
 
