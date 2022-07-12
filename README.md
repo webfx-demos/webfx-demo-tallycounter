@@ -13,12 +13,12 @@ The red button is to reset the counter. Here is the [source code][demo-source-li
 
 ## Reusability
 
-The odometer control was actually already implemented in JavaFx on this [Github repository][hansolo-odometer-link].
-This is an example of how you can benefit from the JavaFx ecosystem and reuse or port existing JavaFx libraries in your WebFx applications.
+The odometer control was actually already implemented in JavaFX on this [Github repository][hansolo-odometer-link].
+This is an example of how you can benefit from the JavaFX ecosystem and reuse or port existing JavaFX libraries in your WebFX applications.
 
 ## Responsive design
 
-It's not well-known but JavaFx has a great feature that makes responsive design easy and powerful:
+It's not well-known but JavaFX has a great feature that makes responsive design easy and powerful:
 it can callback your code to let you decide how to layout your components and this at any level of the graph (this possibility doesn't exist in standard HTML/JS/CSS).
 
 For example, by overriding the layoutChildren() method of a container, you can easily code your responsive design logic and decide how to resize and relocate your components inside this container in dependence of its width and height.
