@@ -1,25 +1,16 @@
 package dev.webfx.demo.tallycounter;
 
+import dev.webfx.extras.led.Led;
 import eu.hansolo.fx.odometer.Odometer;
 import eu.hansolo.fx.odometer.OdometerBuilder;
 import javafx.animation.*;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.VPos;
-import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.effect.BlurType;
-import javafx.scene.effect.DropShadow;
-import javafx.scene.effect.InnerShadow;
 import javafx.scene.layout.*;
-import javafx.scene.paint.*;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Line;
-import javafx.scene.shape.StrokeLineCap;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -33,10 +24,10 @@ public final class TallyCounterApplication extends Application {
     private Odometer odometer;
     private Timeline odometerTimeline, swapTimeline;
     private boolean swapped;
-    private final LedButton incrementButton = LedButton.create(Color.GREEN,  true,  this::increment);
-    private final LedButton decrementButton = LedButton.create(Color.ORANGE, false, this::decrement);
-    private final LedButton resetButton     = LedButton.create(Color.RED,    null,  this::reset);
-    private final LedButton swapButton      = LedButton.create(Color.BLUE,    null, this::swap);
+    private final Led incrementButton = Led.create(Color.GREEN,  true,  this::increment);
+    private final Led decrementButton = Led.create(Color.ORANGE, false, this::decrement);
+    private final Led resetButton     = Led.create(Color.RED,    null,  this::reset);
+    private final Led swapButton      = Led.create(Color.BLUE,    null, this::swap);
     private double leftButtonX, rightButtonX;
 
     @Override
@@ -73,8 +64,8 @@ public final class TallyCounterApplication extends Application {
                 double extraWidth = width - odometerWidth;
                 double extraHeight = height - odometerHeight;
                 double buttonSize;
-                LedButton leftButton = swapped ? incrementButton : decrementButton;
-                LedButton rightButton = swapped ? decrementButton : incrementButton;
+                Led leftButton = swapped ? incrementButton : decrementButton;
+                Led rightButton = swapped ? decrementButton : incrementButton;
                 if (extraWidth > 1.61 * extraHeight) {
                     if (odometerWidth > 0.6 * width) {
                         odometerWidth = 0.6 * width;
@@ -150,8 +141,8 @@ public final class TallyCounterApplication extends Application {
     private void swap() {
         if (swapTimeline != null)
             swapTimeline.stop();
-        LedButton leftButton = swapped ? incrementButton : decrementButton;
-        LedButton rightButton = swapped ? decrementButton : incrementButton;
+        Led leftButton = swapped ? incrementButton : decrementButton;
+        Led rightButton = swapped ? decrementButton : incrementButton;
         swapTimeline = new Timeline(new KeyFrame(Duration.seconds(0.5),
                 new KeyValue(leftButton.layoutXProperty(), rightButtonX, Interpolator.EASE_OUT),
                 new KeyValue(rightButton.layoutXProperty(), leftButtonX, Interpolator.EASE_OUT)));
@@ -171,90 +162,5 @@ public final class TallyCounterApplication extends Application {
     private double distance(double x1, double y1, double x2, double y2) {
         double a = x1 - x2, b = y1 - y2;
         return Math.sqrt(a * a + b * b);
-    }
-
-    static final class LedButton extends Region {
-
-        private final Circle ledBorder = new Circle(), ledCentre = new Circle(), highlight = new Circle();
-        private final Line hLine = new Line(), vLine = new Line();
-        private final Paint pressedFill, releasedFill;
-        private final InnerShadow innerShadow = new InnerShadow(BlurType.TWO_PASS_BOX, Color.rgb(0, 0, 0, 0.65), 0, 0, 0, 0);
-
-        LedButton(Color ledColor, Boolean plus) {
-            Paint borderFill = new LinearGradient( 0,  0, 1, 1, true, CycleMethod.NO_CYCLE,
-                    new Stop(0.0,  Color.rgb( 20,  20,  20, 0.65)),
-                    new Stop(0.15, Color.rgb( 20,  20,  20, 0.65)),
-                    new Stop(0.26, Color.rgb( 41,  41,  41, 0.65)),
-                    new Stop(0.4,  Color.rgb(100, 100, 100, 0.80)),
-                    new Stop(1.0,  Color.rgb( 20,  20,  20, 0.65)));
-            ledBorder.setFill(borderFill);
-            pressedFill = new LinearGradient(0, 0, 1, 1, true, CycleMethod.NO_CYCLE,
-                    new Stop(0.0,  ledColor.deriveColor(0d, 1d, 0.77, 1d)),
-                    new Stop(0.49, ledColor.deriveColor(0d, 1d, 0.5,  1d)),
-                    new Stop(1.0,  ledColor));
-            releasedFill = new LinearGradient(0, 0, 1, 1, true, CycleMethod.NO_CYCLE,
-                    new Stop(0.0,  ledColor.deriveColor(0d, 1d, 0.57, 1d)),
-                    new Stop(0.49, ledColor.deriveColor(0d, 1d, 0.4,  1d)),
-                    new Stop(1.0,  ledColor.deriveColor(0d, 1d, 0.2,  1d)));
-            ledCentre.setFill(releasedFill);
-            ledCentre.setEffect(innerShadow);
-            ledCentre.setOnMousePressed(e -> {
-                ledCentre.setFill(pressedFill);
-                ledCentre.setEffect(new DropShadow(ledCentre.getRadius() * 0.3, ledColor));
-            });
-            ledCentre.setOnMouseReleased(e -> {
-                ledCentre.setFill(releasedFill);
-                ledCentre.setEffect(null);
-            });
-
-            Color lineColor = Color.IVORY;
-            hLine.setStroke(lineColor);
-            hLine.setStrokeLineCap(StrokeLineCap.ROUND);
-            vLine.setStroke(lineColor);
-            vLine.setStrokeLineCap(StrokeLineCap.ROUND);
-            Node sign = plus == Boolean.TRUE ? new Group(hLine, vLine) : hLine;
-            sign.setOpacity(0.6);
-            getChildren().setAll(ledBorder, ledCentre, highlight, sign);
-            highlight.setMouseTransparent(true);
-            sign.setMouseTransparent(true);
-            if (plus == null)
-                sign.setVisible(false);
-        }
-
-        final void setOnAction(EventHandler<ActionEvent> actionHandler) {
-            ledCentre.setOnMouseClicked(e -> actionHandler.handle(new ActionEvent(this, this)));
-        }
-
-        @Override public void layoutChildren() {
-            double width = getWidth();
-            double height = getHeight();
-            double radius = Math.min(width, height) / 2;
-            ledBorder.setRadius(radius);
-            ledCentre.setRadius(0.8 * radius);
-            highlight.setRadius(0.7 * radius);
-            innerShadow.setRadius(0.8 * 0.075 / 0.15 * radius);
-            Paint highlightFill = new RadialGradient(0, 0, 0 - highlight.getRadius(), 0 - highlight.getRadius(), highlight.getRadius(), false,
-                    CycleMethod.NO_CYCLE, new Stop(0.0, Color.WHITE), new Stop(1.0, Color.TRANSPARENT));
-            highlight.setFill(highlightFill);
-            double lineLength = 0.4 * radius;
-            hLine.setStartX(width / 2 - lineLength);
-            hLine.setEndX(width / 2 + lineLength);
-            hLine.setStrokeWidth(0.2 * radius);
-            vLine.setStartY(width / 2 - lineLength);
-            vLine.setEndY(width / 2 + lineLength);
-            vLine.setStrokeWidth(0.2 * radius);
-            for (Node child : getChildren())
-                if (!(child instanceof Group))
-                    layoutInArea(child, 0, 0, width, height, 0 , HPos.CENTER, VPos.CENTER);
-            layoutInArea(hLine, 0, 0, width, height, 0 , HPos.CENTER, VPos.CENTER);
-            layoutInArea(vLine, 0, 0, width, height, 0 , HPos.CENTER, VPos.CENTER);
-        }
-
-        static LedButton create(Color ledColor, Boolean plus, Runnable actionHandler) {
-            LedButton ledButton = new LedButton(ledColor, plus);
-            ledButton.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-            ledButton.setOnAction(e -> actionHandler.run());
-            return ledButton;
-        }
     }
 }
