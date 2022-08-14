@@ -24,10 +24,10 @@ public final class TallyCounterApplication extends Application {
     private Odometer odometer;
     private Timeline odometerTimeline, swapTimeline;
     private boolean swapped;
-    private final Led incrementButton = Led.create(Color.GREEN,  true,  this::increment);
-    private final Led decrementButton = Led.create(Color.ORANGE, false, this::decrement);
-    private final Led resetButton     = Led.create(Color.RED,    null,  this::reset);
-    private final Led swapButton      = Led.create(Color.BLUE,    null, this::swap);
+    private final Led incrementButton = Led.create(Color.GREEN.darker(),  true,  this::increment);
+    private final Led decrementButton = Led.create(Color.ORANGE.darker(), false, this::decrement);
+    private final Led resetButton     = Led.create(Color.RED.darker(),    null,  this::reset);
+    private final Led swapButton      = Led.create(Color.BLUE.darker(),    null, this::swap);
     private double leftButtonX, rightButtonX;
 
     @Override
