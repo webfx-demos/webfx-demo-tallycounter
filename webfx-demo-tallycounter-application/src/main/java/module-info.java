@@ -7,6 +7,7 @@ module webfx.demo.tallycounter.application {
     requires javafx.graphics;
     requires webfx.extras.led;
     requires webfx.lib.odometer;
+    requires webfx.platform.storage;
 
     // Exported packages
     exports dev.webfx.demo.tallycounter;
