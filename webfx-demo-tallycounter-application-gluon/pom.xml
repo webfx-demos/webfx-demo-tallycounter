@@ -91,6 +91,7 @@
                     </attachList>
                     <resourcesList>
                         <list>dev/webfx/platform/meta/exe/[^/]+</list>
+                        <list>images/checkbox/[^/]+</list>
                     </resourcesList>
                 </configuration>
             </plugin>
