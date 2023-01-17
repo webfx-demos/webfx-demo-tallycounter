@@ -2,6 +2,8 @@ package dev.webfx.demo.tallycounter;
 
 import dev.webfx.extras.led.Led;
 import dev.webfx.platform.storage.LocalStorage;
+import dev.webfx.platform.util.Booleans;
+import dev.webfx.platform.util.Numbers;
 import eu.hansolo.fx.odometer.Odometer;
 import eu.hansolo.fx.odometer.OdometerBuilder;
 import javafx.animation.*;
@@ -33,7 +35,7 @@ public final class TallyCounterApplication extends Application {
 
     @Override
     public void start(Stage stage) {
-        loadCounter();
+        loadState();
         Scene scene = new Scene(createTallyCounterPane(), 800, 600);
         stage.setTitle("Tally Counter");
         stage.setScene(scene);
@@ -151,6 +153,7 @@ public final class TallyCounterApplication extends Application {
                 new KeyValue(rightButton.layoutXProperty(), leftButtonX, Interpolator.EASE_OUT)));
         swapTimeline.play();
         swapped = !swapped;
+        saveState();
     }
 
     private void setCounter(int counter) {
@@ -160,18 +163,19 @@ public final class TallyCounterApplication extends Application {
         odometerTimeline = new Timeline(new KeyFrame(Duration.seconds(0.2),
                 new KeyValue(odometer.valueProperty(), this.counter, Interpolator.LINEAR)));
         odometerTimeline.play();
-        saveCounter();
+        saveState();
     }
 
-    private void loadCounter() {
-        try {
-            counter = Integer.parseInt(LocalStorage.getItem("counter"));
-        } catch (Exception e) {
-        }
+    private void loadState() {
+        counter = Numbers.intValue(LocalStorage.getItem("counter"));
+        beforeResetCounter = Numbers.intValue(LocalStorage.getItem("beforeResetCounter"));
+        swapped = Booleans.booleanValue(LocalStorage.getItem("swapped"));
     }
 
-    private void saveCounter() {
+    private void saveState() {
         LocalStorage.setItem("counter", String.valueOf(counter));
+        LocalStorage.setItem("beforeResetCounter", String.valueOf(beforeResetCounter));
+        LocalStorage.setItem("swapped", String.valueOf(swapped));
     }
 
     private double distance(double x1, double y1, double x2, double y2) {
