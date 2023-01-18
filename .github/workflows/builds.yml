@@ -470,7 +470,6 @@ jobs:
   upload:
     needs: build # Doing it only once all previous builds have been completed
     runs-on: ubuntu-latest
-    env:
       # API_GITHUB_TOKEN is already set
 
     steps:
