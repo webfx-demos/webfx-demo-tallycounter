@@ -48,7 +48,8 @@ jobs:
           - os-config: 2 # Generates build 6) - Could be in os-config 1 but moved it a separate config to speed up (parallel run)
             os: ubuntu-latest
             gluon-android-arch-token:      'aarch64-android'                    # build 6)
-            gluon-android-artifact-suffix: 'Android-aarch64-native-package.apk' # build 6)
+            gluon-android-apk-suffix:      'Android-aarch64.apk'                # build 6)
+            gluon-android-aab-suffix:      'Android-aarch64.aab'                # build 6)
 
           - os-config: 3 # Generates builds 7) 8) 9) & 10)
             os: windows-latest
@@ -366,8 +367,10 @@ jobs:
 
       # Staging 6)
       - if: matrix.gluon-android-arch-token != null
-        name: Copy Android native application to staging
-        run: cp ${{ env.app-gluon-module-dir }}/target/gluonfx/${{ matrix.gluon-android-arch-token }}/gvm/*.apk staging/${{ env.app-name }}-${{ matrix.gluon-android-artifact-suffix }}
+        name: Copy Android APK & AAB to staging
+        run: |
+          cp ${{ env.app-gluon-module-dir }}/target/gluonfx/${{ matrix.gluon-android-arch-token }}/gvm/*.apk staging/${{ env.app-name }}-${{ matrix.gluon-android-apk-suffix }}
+          cp ${{ env.app-gluon-module-dir }}/target/gluonfx/${{ matrix.gluon-android-arch-token }}/gvm/*.aab staging/${{ env.app-name }}-${{ matrix.gluon-android-aab-suffix }}
 
       # Uploading to Google Play (if json provided)
       - if: matrix.gluon-ios-arch-token != null && env.GLUON_ANDROID_SERVICE_ACCOUNT_JSON != ''
