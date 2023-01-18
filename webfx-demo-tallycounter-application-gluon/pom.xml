@@ -93,10 +93,12 @@
                         <list>dev/webfx/platform/meta/exe/[^/]+$</list>
                         <list>images/checkbox/[^/]+$</list>
                     </resourcesList>
+                    <appIdentifier>dev.webfx.demo.tallycounter</appIdentifier>
                     <releaseConfiguration>
                         <!-- Android -->
                         <appLabel>Tally counter</appLabel>
                     </releaseConfiguration>
+
                 </configuration>
             </plugin>
         </plugins>
