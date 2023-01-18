@@ -353,7 +353,6 @@ jobs:
         run: |
           export ANDROID_SDK=$ANDROID_HOME # Otherwise GluonFX 1.0.16 package task is failing
           mvn -B -P 'gluon-android' clean gluonfx:build gluonfx:package # May take a while
-          tail -n+1 ${{ env.app-gluon-module-dir }}/target/gluonfx/log/*.log
         env:
           GRAALVM_HOME: ${{ env.JAVA_HOME }}
           GLUON_ANDROID_KEYSTOREPATH: ${{ steps.android_keystore_file.outputs.filePath }}
