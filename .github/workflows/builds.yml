@@ -337,7 +337,7 @@ jobs:
       ##################################################################################################################
 
       # Importing the Android keystore if provided
-      - if: matrix.gluon-ios-arch-token != null && env.GLUON_ANDROID_KEYSTORE_BASE64 != ''
+      - if: matrix.gluon-ios-arch-token != null && env.GLUON_ANDROID_KEYSTORE_BASE64 != '' && env.GLUON_ANDROID_KEYALIAS != ''
         name: Setup Android Keystore
         id: android_keystore_file
         uses: timheuer/base64-to-file@v1
