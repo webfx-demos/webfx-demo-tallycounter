@@ -1,6 +1,7 @@
 package dev.webfx.demo.tallycounter;
 
 import dev.webfx.extras.led.Led;
+import dev.webfx.kit.util.scene.DeviceSceneUtil;
 import dev.webfx.platform.storage.LocalStorage;
 import dev.webfx.platform.util.Booleans;
 import dev.webfx.platform.util.Numbers;
@@ -30,13 +31,13 @@ public final class TallyCounterApplication extends Application {
     private final Led incrementButton = Led.create(Color.GREEN.darker(),  true,  this::increment);
     private final Led decrementButton = Led.create(Color.ORANGE.darker(), false, this::decrement);
     private final Led resetButton     = Led.create(Color.RED.darker(),    null,  this::reset);
-    private final Led swapButton      = Led.create(Color.BLUE.darker(),    null, this::swap);
+    private final Led swapButton      = Led.create(Color.BLUE.darker(),   null,  this::swap);
     private double leftButtonX, rightButtonX;
 
     @Override
     public void start(Stage stage) {
         loadState();
-        Scene scene = new Scene(createTallyCounterPane(), 800, 600);
+        Scene scene = DeviceSceneUtil.newScene(createTallyCounterPane(), 800, 600, Color.BLACK);
         stage.setTitle("Tally Counter");
         stage.setScene(scene);
         stage.show();

@@ -6,6 +6,7 @@ module webfx.demo.tallycounter.application {
     requires javafx.base;
     requires javafx.graphics;
     requires webfx.extras.led;
+    requires webfx.kit.util.scene;
     requires webfx.lib.odometer;
     requires webfx.platform.storage;
     requires webfx.platform.util;
