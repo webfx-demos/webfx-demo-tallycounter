@@ -79,6 +79,12 @@
 
         <dependency>
             <groupId>dev.webfx</groupId>
+            <artifactId>webfx-platform-useragent-gluon</artifactId>
+            <version>0.1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>dev.webfx</groupId>
             <artifactId>webfx-platform-visibility-gluon</artifactId>
             <version>0.1.0-SNAPSHOT</version>
         </dependency>
@@ -102,6 +108,8 @@
                     </resourcesList>
                     <appIdentifier>dev.webfx.demo.tallycounter</appIdentifier>
                     <releaseConfiguration>
+                        <!-- macOS/iOS -->
+                        <bundleName>Tally counter</bundleName>
                         <!-- Android -->
                         <appLabel>Tally counter</appLabel>
                     </releaseConfiguration>
