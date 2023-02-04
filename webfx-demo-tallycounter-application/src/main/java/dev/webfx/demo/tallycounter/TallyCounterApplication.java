@@ -97,7 +97,7 @@ public final class TallyCounterApplication extends Application {
                     }
                     extraWidth = width - odometerWidth;
                     extraHeight = height - odometerHeight;
-                    buttonSize = Math.min(200, Math.min(odometerWidth / 3, extraHeight));
+                    buttonSize = Math.min(Math.max(width, height) * 0.25, Math.min(odometerWidth / 3, extraHeight));
                     double spaceY = height - odometerHeight - buttonSize;
                     layoutInArea(odometer, left + extraWidth / 2, top + spaceY / 3, odometerWidth, odometerHeight, 0, HPos.CENTER, VPos.CENTER);
                     double buttonsY = top + spaceY / 3 + odometerHeight + spaceY / 3;
