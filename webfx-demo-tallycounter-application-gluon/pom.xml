@@ -104,6 +104,7 @@
                     </attachList>
                     <resourcesList>
                         <list>dev/webfx/platform/meta/exe/[^/]+$</list>
+                        <list>eu/hansolo/fx/odometer/[^/]+$</list>
                         <list>images/checkbox/[^/]+$</list>
                     </resourcesList>
                     <appIdentifier>dev.webfx.demo.tallycounter</appIdentifier>

@@ -99,6 +99,8 @@
     <!--===============================< webfx-lib-odometer >===============================-->
     <source path="eu/hansolo/fx/odometer"/>
     <source path="eu/hansolo/fx/odometer/event"/>
+    <resource path="eu/hansolo/fx/odometer"/>
+    <public includes="eu/hansolo/fx/odometer/" path=""/>
     <!--==============================< webfx-platform-boot >===============================-->
     <source path="dev/webfx/platform/boot"/>
     <source path="dev/webfx/platform/boot/spi"/>
