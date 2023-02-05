@@ -49,8 +49,6 @@ public final class TallyCounterApplication extends Application {
                 .decimals(0)
                 .digitBackgroundColor(Color.BLACK)
                 .digitForegroundColor(Color.WHITE)
-                .decimalBackgroundColor(Color.BLACK)
-                .decimalForegroundColor(Color.WHITE)
                 .value(counter)
                 .build();
         odometer.setPrefHeight(Region.USE_COMPUTED_SIZE);
