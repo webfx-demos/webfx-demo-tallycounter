@@ -16,7 +16,7 @@ module webfx.demo.tallycounter.application.openjfx {
     requires webfx.platform.storagelocation.java;
     requires webfx.platform.useragent.java.client;
 
-    // Meta Resource package
+    // Resources packages
     opens dev.webfx.platform.meta.exe;
 
 }
