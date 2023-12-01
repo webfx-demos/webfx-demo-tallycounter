@@ -110,9 +110,9 @@
                     <appIdentifier>dev.webfx.demo.tallycounter</appIdentifier>
                     <releaseConfiguration>
                         <!-- macOS/iOS -->
-                        <bundleName>Tally counter</bundleName>
+                        <bundleName>Tally Counter</bundleName>
                         <!-- Android -->
-                        <appLabel>Tally counter</appLabel>
+                        <appLabel>Tally Counter</appLabel>
                     </releaseConfiguration>
 
                 </configuration>

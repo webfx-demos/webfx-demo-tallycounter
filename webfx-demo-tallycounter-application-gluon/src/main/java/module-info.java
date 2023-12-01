@@ -16,7 +16,4 @@ module webfx.demo.tallycounter.application.gluon {
     requires webfx.platform.useragent.gluon;
     requires webfx.platform.visibility.gluon;
 
-    // Resources packages
-    opens dev.webfx.platform.meta.exe;
-
 }
