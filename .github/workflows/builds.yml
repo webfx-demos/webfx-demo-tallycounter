@@ -33,7 +33,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        app: [{name: 'TallyCounter', module-token: 'webfx-demo-tallycounter', gwt-token: 'webfx_demo_tallycounter', gluon-token: 'WebFXDemoTallycounter', gwt-push-branch: 'tallycounter-gwt', j2cl-push-branch: 'tallycounter-gwt', android-package-name: 'dev.webfx.demo.tallycounter', android-track: 'beta', ios-bundle-id: 'dev.webfx.demo.tallycounter', version: '0.1.0-SNAPSHOT'}]
+        app: [{name: 'TallyCounter', module-token: 'webfx-demo-tallycounter', gwt-token: 'webfx_demo_tallycounter', gluon-token: 'WebFXDemoTallycounter', gwt-push-branch: 'tallycounter-gwt', j2cl-push-branch: 'tallycounter', android-package-name: 'dev.webfx.demo.tallycounter', android-track: 'beta', ios-bundle-id: 'dev.webfx.demo.tallycounter', version: '0.1.0-SNAPSHOT'}]
         os-config:  [1, 2, 3, 4]
         include:
           - os-config: 1 # Generates builds 1) 2) 3) 4) & 5)
