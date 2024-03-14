@@ -36,6 +36,7 @@
         <module>webfx-demo-tallycounter-application</module>
         <module>webfx-demo-tallycounter-application-gluon</module>
         <module>webfx-demo-tallycounter-application-gwt</module>
+        <module>webfx-demo-tallycounter-application-j2cl</module>
         <module>webfx-demo-tallycounter-application-openjfx</module>
     </modules>
 

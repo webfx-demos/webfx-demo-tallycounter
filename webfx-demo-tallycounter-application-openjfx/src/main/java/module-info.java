@@ -4,7 +4,7 @@ module webfx.demo.tallycounter.application.openjfx {
 
     // Direct dependencies modules
     requires webfx.demo.tallycounter.application;
-    requires webfx.kit.openjfx;
+    requires webfx.kit.javafxgraphics.openjfx;
     requires webfx.kit.platform.visibility.openjfx;
     requires webfx.platform.boot.java;
     requires webfx.platform.console.java;
