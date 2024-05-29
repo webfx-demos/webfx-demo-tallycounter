@@ -114,7 +114,6 @@
                         <!-- Android -->
                         <appLabel>Tally Counter</appLabel>
                     </releaseConfiguration>
-
                 </configuration>
             </plugin>
         </plugins>
