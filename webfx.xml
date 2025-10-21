@@ -11,7 +11,7 @@
         <group>
             <groupId>dev.webfx</groupId>
             <version>0.1.0-SNAPSHOT</version>
-            <webfx-library name="webfx-extras-led"/>
+            <webfx-library name="webfx-extras"/>
             <webfx-library name="webfx-lib-odometer"/>
         </group>
     </required-libraries>
