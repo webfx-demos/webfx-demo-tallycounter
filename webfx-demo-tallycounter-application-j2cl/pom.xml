@@ -117,7 +117,14 @@
                                     <goal>unpack</goal>
                                 </goals>
                                 <configuration>
-                                    <skip>true</skip>
+                                    <artifactItems>
+                                        <artifactItem>
+                                            <groupId>dev.webfx</groupId>
+                                            <artifactId>webfx-lib-odometer</artifactId>
+                                            <version>0.1.0-SNAPSHOT</version>
+                                            <includes>eu/hansolo/fx/odometer/</includes>
+                                        </artifactItem>
+                                    </artifactItems>
                                     <excludes>**/*.java,**/*.class</excludes>
                                     <outputDirectory>${project.build.directory}/${project.build.finalName}/${project.artifactId}</outputDirectory>
                                 </configuration>

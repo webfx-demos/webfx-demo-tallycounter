@@ -39,6 +39,7 @@
         <module>webfx-demo-tallycounter-application-j2cl</module>
         <module>webfx-demo-tallycounter-application-openjfx</module>
         <module>webfx-demo-tallycounter-application-teavm</module>
+        <module>webfx-demo-tallycounter-application-teavm-wasm</module>
     </modules>
 
 </project>

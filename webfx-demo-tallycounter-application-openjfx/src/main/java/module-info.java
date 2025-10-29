@@ -14,5 +14,6 @@ module webfx.demo.tallycounter.application.openjfx {
     requires webfx.platform.shutdown.jre;
     requires webfx.platform.storage.jre;
     requires webfx.platform.storagelocation.jre;
+    requires webfx.platform.useragent.jre.client;
 
 }
